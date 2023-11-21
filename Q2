@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+
+class User
+{
+    public int UserId { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string EmailAddress { get; set; }
+}
+
+class Payment
+{
+    public int PaymentId { get; set; }
+    public int UserId { get; set; }
+    public decimal PaymentAmount { get; set; }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Generate static records for 5 users
+        List<User> users = new List<User>
+        {
+            new User { UserId = 1, FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@example.com" },
+            new User { UserId = 2, FirstName = "Jane", LastName = "Doe", EmailAddress = "jane.doe@example.com" },
+            new User { UserId = 3, FirstName = "Alice", LastName = "Smith", EmailAddress = "alice.smith@example.com" },
+            new User { UserId = 4, FirstName = "Bob", LastName = "Johnson", EmailAddress = "bob.johnson@example.com" },
+            new User { UserId = 5, FirstName = "Eva", LastName = "Williams", EmailAddress = "eva.williams@example.com" }
+        };
+
+        // Generate static records for 15 payments
+        List<Payment> payments = new List<Payment>
+        {
+            new Payment { PaymentId = 1, UserId = 1, PaymentAmount = 100.50m },
+            new Payment { PaymentId = 2, UserId = 2, PaymentAmount = 75.20m },
+            new Payment { PaymentId = 3, UserId = 3, PaymentAmount = 150.75m },
+            new Payment { PaymentId = 4, UserId = 4, PaymentAmount = 50.00m },
+            new Payment { PaymentId = 5, UserId = 5, PaymentAmount = 120.30m },
+            // ... add 10 more payments with different user ids and amounts
+        };
+
+        // Display the generated user records
+        Console.WriteLine("Users:");
+        foreach (var user in users)
+        {
+            Console.WriteLine($"User ID: {user.UserId}, Name: {user.FirstName} {user.LastName}, Email: {user.EmailAddress}");
+        }
+
+        // Display the generated payment records
+        Console.WriteLine("\nPayments:");
+        foreach (var payment in payments)
+        {
+            Console.WriteLine($"Payment ID: {payment.PaymentId}, User ID: {payment.UserId}, Amount: {payment.PaymentAmount:C}");
+        }
+    }
+}
